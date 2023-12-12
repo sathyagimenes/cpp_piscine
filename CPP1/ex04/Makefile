@@ -16,7 +16,7 @@ $(NAME):	$(OBJS)
 				$(CC) $(CFLAGS) -o $@ -c $<
 
 run:	$(NAME)
-			./$(NAME)
+			./$(NAME) texto "Anel" "Frodo"
 
 clean:
 				rm -f $(OBJS)
