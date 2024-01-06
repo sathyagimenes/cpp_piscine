@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:36:12 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/01/06 17:23:39 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/01/06 18:46:03 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 
 int main(void)
 {
-    Fixed a;
-    Fixed const b(10);
-    Fixed const c(42.42f);
-    Fixed const d(b);
-    a = Fixed(1234.4321f);
+	Fixed		a;
+	Fixed const	b(Fixed(5.05f) * Fixed(2));
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << b << std::endl;
 
-    return 0;
+	std::cout << Fixed::max( a, b ) << std::endl;
+
+	return 0;
 }

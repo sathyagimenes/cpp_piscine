@@ -40,7 +40,7 @@ Fixed &Fixed::operator=(Fixed const &fixed)
 	return *this;
 }
 
-int Fixed::getRawBits(void) const
+int Fixed::getRawBits(void) const // const indicates that it does not modify the state of the object on which it is called.
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_rawBits);
