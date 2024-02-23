@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 13:01:47 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/02/22 20:59:51 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/02/22 21:57:36 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,21 @@ ClapTrap & ClapTrap::operator = (ClapTrap const &rhs)
 		setAttackDamage(rhs.getAttackDamage());
 	}
 	return (*this);
+}
+
+ClapTrap::ClapTrap(int hitPoints, int energyPoints, int attackDamage)
+	: _name("Default"), _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage)
+{
+	std::cout << "Default Constructor called" << std::endl;
+	return;
+}
+
+ClapTrap::ClapTrap(std::string const &name, int hitPoints, int energyPoints, int attackDamage)
+	: _name(name), _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage)
+{
+	std::cout << "New Constructor called with name " << name << std::endl;
+	_name = name;
+	return;
 }
 
 void ClapTrap::attack(const std::string &target)
