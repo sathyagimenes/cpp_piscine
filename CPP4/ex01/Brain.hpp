@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 10:54:44 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/02/26 11:06:16 by sde-cama         ###   ########.fr       */
+/*   Created: 2024/02/25 23:05:56 by sde-cama          #+#    #+#             */
+/*   Updated: 2024/02/25 23:46:50 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOG_H__
-#define __DOG_H__
+#ifndef __BRAIN_H__
+#define __BRAIN_H__
 
 #include <iostream>
-#include "Animal.hpp"
 
-class Dog : public Animal
+class Brain
 {
+	private:
+		std::string _ideas[100];
+
 	public:
 		/* Orthodox Canonical Form methods*/
-		Dog(void);
-		Dog(Dog const &copy);
-		~Dog(void);
-		Dog &operator=(Dog const &rhs);
+		Brain(void);
+		Brain(Brain const &copy);
+		Brain &operator=(Brain const &rhs);
+		~Brain(void);
 
-		/* Member Functions */
-		void makeSound(void) const;
+		/* Getters */
+		std::string getIdea(size_t i) const;
+
+		/* Setters */
+		void setIdea(size_t i, std::string idea);
 };
 
 #endif

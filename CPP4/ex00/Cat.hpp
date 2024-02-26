@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 09:50:21 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/02/24 10:20:03 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:06:04 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,15 @@
 
 class Cat : public Animal
 {
-protected:
-	std::string _type;
+	public:
+		/* Orthodox Canonical Form methods*/
+		Cat(void);
+		Cat(Cat const &copy);
+		~Cat(void);
+		Cat &operator=(Cat const &rhs);
 
-public:
-	/* Orthodox Canonical Form methods*/
-	Cat(void);
-	Cat(Cat const &copy);
-	~Cat(void);
-	Cat &operator=(Cat const &rhs);
-
-	/* Member Functions */
-	void makeSound(void) const;
+		/* Member Functions */
+		void makeSound(void) const;
 };
 
 #endif

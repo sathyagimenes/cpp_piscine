@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 10:54:44 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/02/26 11:06:16 by sde-cama         ###   ########.fr       */
+/*   Created: 2024/02/25 09:03:33 by sde-cama          #+#    #+#             */
+/*   Updated: 2024/02/25 09:03:35 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOG_H__
-#define __DOG_H__
+#ifndef __WrongCat_H__
+#define __WrongCat_H__
 
 #include <iostream>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
-	public:
-		/* Orthodox Canonical Form methods*/
-		Dog(void);
-		Dog(Dog const &copy);
-		~Dog(void);
-		Dog &operator=(Dog const &rhs);
+protected:
+	std::string _type;
 
-		/* Member Functions */
-		void makeSound(void) const;
+public:
+	/* Orthodox Canonical Form methods*/
+	WrongCat(void);
+	WrongCat(WrongCat const &copy);
+	~WrongCat(void);
+	WrongCat &operator=(WrongCat const &rhs);
+
+	/* Member Functions */
+	void makeSound(void) const;
 };
 
 #endif
