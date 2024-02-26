@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 09:50:31 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/02/25 09:06:22 by sde-cama         ###   ########.fr       */
+/*   Created: 2024/02/25 08:50:23 by sde-cama          #+#    #+#             */
+/*   Updated: 2024/02/25 09:10:15 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ANIMAL_H__
-#define __ANIMAL_H__
+#ifndef __WRONGANIMAL_H__
+#define __WRONGANIMAL_H__
 
 #include <iostream>
 
-class Animal
+class WrongAnimal
 {
 protected:
 	std::string _type;
 
 public:
 	/* Orthodox Canonical Form methods*/
-	Animal(void);
-	Animal(Animal const &copy);
-	Animal(std::string type);
-	virtual ~Animal(void);
-	Animal &operator=(Animal const &rhs);
+	WrongAnimal(void);
+	WrongAnimal(WrongAnimal const &copy);
+	WrongAnimal(std::string type);
+	~WrongAnimal(void);
+	WrongAnimal &operator=(WrongAnimal const &rhs);
 
 	/* Getters */
 	std::string getType(void) const;
 
 	/* Setters */
 	void setType(std::string const &type);
-
-	virtual void makeSound(void) const;
-	/*
-		A virtual function allows derived classes to replace the 
-		implementation provided by the base class.
-	*/
+	
+	/* Member Functions */
+	void makeSound(void) const;
 };
 
 #endif

@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 09:50:31 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/02/25 09:06:22 by sde-cama         ###   ########.fr       */
+/*   Created: 2024/02/25 09:03:33 by sde-cama          #+#    #+#             */
+/*   Updated: 2024/02/25 09:03:35 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ANIMAL_H__
-#define __ANIMAL_H__
+#ifndef __WrongCat_H__
+#define __WrongCat_H__
 
 #include <iostream>
+#include "WrongAnimal.hpp"
 
-class Animal
+class WrongCat : public WrongAnimal
 {
 protected:
 	std::string _type;
 
 public:
 	/* Orthodox Canonical Form methods*/
-	Animal(void);
-	Animal(Animal const &copy);
-	Animal(std::string type);
-	virtual ~Animal(void);
-	Animal &operator=(Animal const &rhs);
+	WrongCat(void);
+	WrongCat(WrongCat const &copy);
+	~WrongCat(void);
+	WrongCat &operator=(WrongCat const &rhs);
 
-	/* Getters */
-	std::string getType(void) const;
-
-	/* Setters */
-	void setType(std::string const &type);
-
-	virtual void makeSound(void) const;
-	/*
-		A virtual function allows derived classes to replace the 
-		implementation provided by the base class.
-	*/
+	/* Member Functions */
+	void makeSound(void) const;
 };
 
 #endif
