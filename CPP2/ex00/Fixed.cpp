@@ -32,6 +32,12 @@ Fixed::~Fixed(void)
 	return;
 };
 
+/*
+	The purpose of the copy constructor and the copy assignment operator are
+	almost equivalent -- both copy one object to another. However, the copy
+	constructor initializes new objects, whereas the assignment operator
+	replaces the contents of existing objects.
+*/
 Fixed &Fixed::operator=(Fixed const &fixed)
 {
 	std::cout << "Copy assignment operator called" << std::endl;

@@ -25,3 +25,8 @@ fclean:
 				rm -f $(NAME)
 
 re:			fclean all
+
+valgrind:	all
+			valgrind ./$(NAME)
+
+.PHONY:		all clean fclean re valgrind

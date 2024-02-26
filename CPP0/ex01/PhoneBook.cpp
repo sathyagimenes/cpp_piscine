@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:03:28 by sde-cama          #+#    #+#             */
-/*   Updated: 2023/11/12 16:44:15 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:51:41 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void PhoneBook::SearchContact()
 
 void PhoneBook::AddNewContact(int index)
 {
-	bool invalidInput = true;
+	bool invalidInput = false;
 
 	std::cout << "Input First Name: ";
 	std::string firstName = getValue();
