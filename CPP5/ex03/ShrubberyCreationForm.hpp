@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:20:17 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/03 19:29:18 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/03 19:28:56 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ public:
 
 	/* Member Functions */
 	void execute(Bureaucrat const &executor) const;
+	static AForm *create(std::string const &target);
 };
