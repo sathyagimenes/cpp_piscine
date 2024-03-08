@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 09:51:08 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/07 19:41:37 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:37:01 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	identify(Base &p)
 
 /* dynamic_cast<type>
    Use dynamic_cast for converting pointers/references within an inheritance hierarchy.
+   The dynamic_cast will seek out the desired object and return it if possible. If it can't, it will return nullptr in the case of a pointer, or throw std::bad_cast in the case of a reference
 
    https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used
 */
