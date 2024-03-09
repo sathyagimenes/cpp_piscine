@@ -1,0 +1,60 @@
+- static_cast:
+    - O static_cast é o primeiro tipo de casting que você deve tentar usar.
+    - Ele lida com conversões implícitas entre tipos (como de int para float ou de ponteiro para void*).
+    - Também pode chamar funções de conversão explícitas ou implícitas.
+    - Em muitos casos, não é necessário usar static_cast explicitamente.
+    - Evite usar a sintaxe (T)something, pois é equivalente a static_cast<T>(something).
+    - Use static_cast para up-cast explícito (de uma classe para sua superclasse).
+    - Pode ser usado para down-cast, desde que não envolva herança virtual.
+    - Não faz verificação e é comportamento indefinido fazer down-cast para um tipo que não é realmente o tipo do objeto.
+- const_cast:
+    - Usado para adicionar ou remover a qualificação const de uma variável.
+    - Útil para sobrecarregar funções de membro com base na constância.
+    - Pode ser usado para adicionar const a um objeto.
+    - Não é indefinido se usado para remover const de uma referência que não foi declarada como const.
+- reinterpret_cast:
+    - O mais tricky de usar.
+    - Reinterpreta padrões de bits e é de baixo nível.
+    - Use-o quando estiver absolutamente certo sobre o tipo de destino.
+    - Convertendo ponteiros para e de tipos inteiros e outros ponteiros.
+Em resumo:
+- Use static_cast para conversões de valor e up-cast explícito.
+- Use const_cast para adicionar ou remover const.
+- Use reinterpret_cast com cuidado, apenas para manipulações de bits de baixo nível.
+
+/* dynamic_cast<type>
+   Use dynamic_cast for converting pointers/references within an inheritance hierarchy.
+   The dynamic_cast will seek out the desired object and return it if possible. If it can't, it will return nullptr in the case of a pointer, or throw std::bad_cast in the case of a reference
+   https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used
+
+	To work on dynamic_cast there must be one virtual function in the base class. A dynamic_cast works only polymorphic base class because it uses this information to decide safe downcasting.
+	Downcasting: Casting a base class pointer (or reference) to a derived class pointer (or reference) is known as downcasting.
+	Upcasting: Casting a derived class pointer (or reference) to a base class pointer (or reference) is known as upcasting. In figure 1 Casting from Derived class 2 pointer/reference to the “Base class” pointer/reference showing Upcasting (Derived class 2 -> Base Class).
+   https://www.geeksforgeeks.org/dynamic-_cast-in-cpp/
+*/
+
+/* What is the uintptr_t data type?
+	'uintptr_t' is an unsigned integer type that is capable of storing a data
+	pointer
+	https://stackoverflow.com/questions/1845482/what-is-the-uintptr-t-data-type
+*/
+
+/* reinterpret_cast<type>
+	Use reinterpret_cast for low-level reinterpreting of bit patterns.
+	Use with extreme caution.
+	- Reinterpreta padrões de bits e é de baixo nível.
+	- Use-o quando estiver absolutamente certo sobre o tipo de destino.
+	- Convertendo ponteiros para e de tipos inteiros e outros ponteiros.
+
+	https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used
+*/
+
+/*
+<static_cast>
+This is used for the normal/ordinary type conversion. This is also the 
+cast responsible for implicit type conversion and can also be called 
+explicitly. You should use it in cases like converting float to int, char 
+to int, etc.
+
+https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used
+*/

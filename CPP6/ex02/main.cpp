@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 09:51:08 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/07 20:37:01 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/08 21:48:14 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,12 @@ void	identify(Base &p)
 /* dynamic_cast<type>
    Use dynamic_cast for converting pointers/references within an inheritance hierarchy.
    The dynamic_cast will seek out the desired object and return it if possible. If it can't, it will return nullptr in the case of a pointer, or throw std::bad_cast in the case of a reference
-
    https://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used
+
+	To work on dynamic_cast there must be one virtual function in the base class. A dynamic_cast works only polymorphic base class because it uses this information to decide safe downcasting.
+	Downcasting: Casting a base class pointer (or reference) to a derived class pointer (or reference) is known as downcasting.
+	Upcasting: Casting a derived class pointer (or reference) to a base class pointer (or reference) is known as upcasting. In figure 1 Casting from Derived class 2 pointer/reference to the “Base class” pointer/reference showing Upcasting (Derived class 2 -> Base Class).
+   https://www.geeksforgeeks.org/dynamic-_cast-in-cpp/
 */
 
 int	main(void)
