@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Whatever.hpp                                       :+:      :+:    :+:   */
+/*   Iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:31:43 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/08 23:09:16 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/08 23:11:12 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
 #include <iostream>
 
 template <typename T>
-void swap(T &a, T &b)
+void	iter(T *array, size_t lenght, void (*func)(T &))
 {
-	T c = a;
-	a = b;
-	b = c;
+	for (size_t i = 0; i < lenght; i++)
+	{
+		func(array[i]);
+	}
 }
 
-template <typename T>
-T max(T a, T b)
+// template <typename T>
+// void	iter(const T *array, size_t lenght, void (*func)(T const &))
+// {
+// 	for (size_t i = 0; i < lenght; i++)
+// 	{
+// 		func(array[i]);
+// 	}
+// }
+
+template<typename T>
+void	print(T x)
 {
-	return (a > b) ? a : b;
+	std::cout << x << std::endl;
+	return ;
 }
 
-template <typename T>
-T min(T a, T b)
-{
-	return (a < b) ? a : b;
-}
 
 #endif
