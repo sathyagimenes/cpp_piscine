@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:31:43 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/10 10:45:41 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:57:12 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,10 @@ std::ostream &operator<<(std::ostream &os, Array<T> const &array)
 #endif
 
 /*
+You can define your templates in the header files as usual. Or, if you want to, you
+can write your template declarations in the header files and write their implementations
+in .tpp files. In any case, the header files are mandatory while the .tpp files are optional.
+
 How to implment template classes
 header files are not the only portable solution. But they are the most convenient portable solution.
 A common solution to this is to write the template declaration in a header file, then implement the class in an implementation file (for example .tpp), and include this implementation file at the end of the header.
