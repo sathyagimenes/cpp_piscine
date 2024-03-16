@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 18:28:33 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/14 22:36:12 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:28:22 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ Container – is the Type of underlying container object.
 
 https://cplusplus.com/reference/stack/stack/
 https://cplusplus.com/reference/deque/deque/
+https://www.geeksforgeeks.org/stack-in-cpp-stl/?ref=lbp
 */
 
-template <typename T>
-class MutantStack : public std::stack<T>
+template <typename T, class Container = std::deque<T>>
+class MutantStack : public std::stack<T, Container>
 {
 public:
 	typedef typename std::stack<T>::container_type::iterator iterator;
