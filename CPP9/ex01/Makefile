@@ -28,6 +28,6 @@ fclean:
 re:			fclean all
 
 valgrind:	all
-			valgrind ./$(NAME)
+			valgrind ./$(NAME) "8 9 * 9 - 9 - 9 - 4 - 1 +"
 
 .PHONY:		all clean fclean re valgrind

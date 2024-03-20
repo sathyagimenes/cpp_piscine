@@ -22,3 +22,9 @@ echo " "
 echo "./RPN '(1 + 1)'"
 # Answer: ERROR
 ./RPN "(1 + 1)"
+
+sleep 1
+echo " "
+echo "./RPN '7.1 7 * 7 -'"
+# Answer: ERROR
+./RPN "7.1 7 * 7 -"
