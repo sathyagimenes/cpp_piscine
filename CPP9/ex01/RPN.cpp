@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:16:13 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/19 00:45:53 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:26:57 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,52 +22,50 @@ const char *RPN::ZeroDivisionException::what(void) const throw()
 	return ("Error: Invalid division by zero.");
 }
 
+const char *RPN::NotEnoughOperators::what(void) const throw()
+{
+	return ("Error: not enough operators");
+}
+
 RPN::RPN(void)
 {
-	// std::cout << "Default Constructor Called." << std::endl;
 	return;
 }
 
 RPN::RPN(std::string expression)
 {
-	// std::cout << "RPN Parameter contructor called." << std::endl;
-	initStack(expression);
+	validateExperession(expression);
 	// printStack();
-	evaluateExpression();
+	evaluateExpression(expression);
 	return;
 }
 
 RPN::RPN(RPN const &src)
 {
-	// std::cout << "Copy Constructor Called." << std::endl;
 	*this = src;
 	return;
 }
 
 RPN::~RPN(void)
 {
-	// std::cout << "Destructor Called." << std::endl;
 	return;
 }
 
 RPN &RPN::operator=(RPN const &rhs)
 {
-	std::cout << "Assignment Operator Called." << std::endl;
 	(void)rhs;
 	return (*this);
 }
 
-void RPN::initStack(std::string expression)
+void RPN::validateExperession(std::string expression)
 {
 	std::string validElements;
 
 	validElements = " +-*/0123456789";
-	for (std::string::reverse_iterator it = expression.rbegin(); it != expression.rend(); it++)
+	for (std::string::iterator it = expression.begin(); it != expression.end(); it++)
 	{
 		if (validElements.find(*it) == std::string::npos)
 			throw RPN::BadInputException();
-		if (*it != ' ')
-			_stack.push(*it);
 	}
 }
 
@@ -77,59 +75,68 @@ void RPN::printStack(void)
 
 	while (!copyStack.empty())
 	{
-		std::cout << static_cast<char>(copyStack.top()) << std::endl;
+		std::cout << static_cast<char>(copyStack.top()) << " ";
 		copyStack.pop();
 	}
+	std::cout << std::endl;
 }
 
-void RPN::evaluateExpression(void)
+void RPN::evaluateExpression(std::string expression)
 {
-	int templ, tempr;
+	int	temp;
 
-	templ = std::isdigit(_stack.top()) ? _stack.top() - '0' : throw BadInputException();
-	tempr = -1;
-
-	_stack.pop();
-	while (!_stack.empty())
+	for (int i = 0; expression[i]; i++)
 	{
-		if (!std::isdigit(_stack.top()))
-			calculate(templ, tempr, _stack.top());
-		else if (tempr == -1)
-			tempr = _stack.top() - '0';
-		_stack.pop();
+		if (expression[i] >= '0' && expression[i] <= '9')
+		{
+			this->_stack.push(atoi(std::string(1, expression[i]).c_str()));
+			if (expression[i + 1] != ' ')
+				throw RPN::BadInputException();
+		}
+		else if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/')
+		{
+			if (this->_stack.size() < 2)
+				throw std::invalid_argument("Error: input");
+			temp = this->_stack.top();
+			this->_stack.pop();
+			temp = calculate(this->_stack.top(), temp, expression[i]);
+			this->_stack.pop();
+			this->_stack.push(temp);
+		}
+		else
+			continue;
 	}
 
-	std::cout << templ << std::endl;
+	//print result
+	if (this->_stack.size() == 1)
+		std::cout << this->_stack.top() << std::endl;
+	else
+		throw RPN::NotEnoughOperators();
 }
 
-void RPN::calculate(int &templ, int &tempr, char op)
+int RPN::calculate(int &value1, int &value2, char op)
 {
-	std::cout << "templ: " << templ << " op: " << op << " tempr: " << tempr << std::endl;
-	if (tempr < 0)
-		return;
-
+	// std::cout << " " << value1 << " " << op << " " << value2;
 	switch (op)
 	{
 	case '+':
-		templ += tempr;
-		tempr = -1;
+		value1 += value2;
 		break;
 	case '-':
-		templ -= tempr;
-		tempr = -1;
+		value1 -= value2;
 		break;
 	case '*':
-		templ *= tempr;
-		tempr = -1;
+		value1 *= value2;
 		break;
 	case '/':
-		if (tempr == 0)
+		if (value2 == 0)
 			throw ZeroDivisionException();
-		templ /= tempr;
-		tempr = -1;
+		value1 /= value2;
 		break;
 	default:
 		throw RPN::BadInputException();
 		break;
 	}
+	// std::cout << " = " << value1 << std::endl;
+	return value1;
 }
