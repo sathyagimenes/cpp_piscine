@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 21:52:25 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/20 21:42:17 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:47:58 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 #include "Utils.hpp"
 #include <iostream>
 
-int main(void) {
+int main(void)
+{
 	PhoneBook phoneBook;
-    int contacts_count = 0;
+	int contacts_count = 0;
 	std::string inputCommand;
-	
 
-	do {
+	do
+	{
 		std::cout << "-------------------------------------------------------------\n";
 		std::cout << "You can enter one of the three commands: ADD, SEARCH and EXIT\n";
 		std::cout << "ADD: add a new contact into phone book.\n";
@@ -29,10 +30,12 @@ int main(void) {
 		std::cout << "EXIT: exit the program.\n";
 		std::cout << "-------------------------------------------------------------\n";
 		inputCommand = getValue();
-		if (inputCommand == "SEARCH") {
+		if (inputCommand == "SEARCH")
+		{
 			phoneBook.SearchContact();
 		}
-		else if (inputCommand == "ADD") {
+		else if (inputCommand == "ADD")
+		{
 			bool success = phoneBook.AddNewContact(contacts_count);
 			if (success)
 				contacts_count = (contacts_count + 1) % SIZE;
