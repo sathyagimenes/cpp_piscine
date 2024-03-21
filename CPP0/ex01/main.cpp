@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 21:52:25 by sde-cama          #+#    #+#             */
-/*   Updated: 2023/11/12 15:52:04 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:42:17 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int main(void) {
 			phoneBook.SearchContact();
 		}
 		else if (inputCommand == "ADD") {
-			phoneBook.AddNewContact(contacts_count);
-			contacts_count = (contacts_count + 1) % SIZE;
+			bool success = phoneBook.AddNewContact(contacts_count);
+			if (success)
+				contacts_count = (contacts_count + 1) % SIZE;
 		}
 	} while (inputCommand != "EXIT");
 	return 0;

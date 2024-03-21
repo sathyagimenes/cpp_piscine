@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:03:28 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/20 21:28:34 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:43:16 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void PhoneBook::SearchContact()
 		std::cout << "Input contact's index wanted: ";
 		inputIndex = getValue();
 
+		if (inputIndex == "EXIT")
+			return;
 		for (unsigned int i = 0; i < inputIndex.length(); i++)
 		{
 			if (!std::isdigit(inputIndex[i]))
@@ -97,7 +99,7 @@ void PhoneBook::SearchContact()
 	phoneBook[index - 1].display();
 }
 
-void PhoneBook::AddNewContact(int index)
+bool PhoneBook::AddNewContact(int index)
 {
 	bool invalidInput = false;
 
@@ -123,4 +125,5 @@ void PhoneBook::AddNewContact(int index)
 	}
 	else
 		phoneBook[index] = Contact(firstName, lastName, nickname, phoneNumber, darkestSecret);
+	return (!invalidInput);
 }

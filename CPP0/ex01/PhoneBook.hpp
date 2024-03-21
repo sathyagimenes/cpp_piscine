@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:35:14 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/20 21:30:28 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:43:30 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	void AddNewContact(int index);
+	bool AddNewContact(int index);
 	void DisplayPhoneBook(void);
 	void SearchContact(void);
 };
