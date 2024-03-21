@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:05:04 by sde-cama          #+#    #+#             */
-/*   Updated: 2023/11/12 14:19:23 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:05:02 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <string>
+# include <iostream>
 
 class Contact {
 	private:

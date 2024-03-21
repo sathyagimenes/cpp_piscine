@@ -6,7 +6,7 @@ SRCS = ./Zombie.cpp				\
 		./zombieHorde.cpp		\
 		./main.cpp
 
-OBJS    = $(SRCS:%.c=%.o)
+OBJS    = $(SRCS:%.cpp=%.o)
 
 all:    $(NAME)
 
@@ -22,8 +22,7 @@ run:	$(NAME)
 clean:
 				rm -f $(OBJS)
 
-# fclean:		clean
-fclean:
+fclean:		clean
 				rm -f $(NAME)
 
 re:			fclean all

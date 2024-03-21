@@ -6,12 +6,11 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:02:58 by sde-cama          #+#    #+#             */
-/*   Updated: 2023/11/12 16:18:29 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:04:47 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include<iostream>
 
 Contact::Contact(void) { return; }
 Contact::~Contact(void) { return; }

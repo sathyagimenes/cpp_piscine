@@ -6,15 +6,11 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:03:28 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/02/26 19:51:41 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/20 21:28:34 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <sstream>
 #include "PhoneBook.hpp"
-#include "Utils.hpp"
 
 Contact phoneBook[SIZE];
 
@@ -76,19 +72,24 @@ void PhoneBook::SearchContact()
 		{
 			if (!std::isdigit(inputIndex[i]))
 			{
-				std::cerr << "\nIndex must a positive number!\n\n";
+				std::cerr << "\nIndex must be a positive number!\n\n";
+				break;
 			}
 			else
 			{
-				std::stringstream s(inputIndex);
-				s >> index;
+				index = std::atoi(inputIndex.c_str());
 				if (index < 1 || index >= 8)
 				{
 					std::cerr << "\nIndex out of range!\n\n";
+					break;
+				}
+				else if (phoneBook[index - 1].getFirstName().empty())
+				{
+					std::cerr << "\nInvalid index!\n\n";
 				}
 			}
 		}
-		if (index >= 1 && index < 8)
+		if (index >= 1 && index < 8 && !phoneBook[index - 1].getFirstName().empty())
 		{
 			break;
 		}
