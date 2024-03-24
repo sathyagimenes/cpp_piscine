@@ -16,7 +16,7 @@ $(NAME):	$(OBJS)
 				$(CC) $(CFLAGS) -o $@ -c $<
 
 run:	$(NAME)
-			./$(NAME) texto "Anel" "Frodo"
+			./$(NAME) texto "Anel" "CPP"
 
 clean:
 				rm -f $(OBJS)
@@ -27,6 +27,6 @@ fclean:		clean
 re:			fclean all
 
 valgrind:	all
-			valgrind ./$(NAME)
+			valgrind ./$(NAME) texto "Anel" "CPP"
 
 .PHONY:		all clean fclean re valgrind

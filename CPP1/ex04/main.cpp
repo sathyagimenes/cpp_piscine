@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:36:12 by sde-cama          #+#    #+#             */
-/*   Updated: 2023/12/11 20:54:06 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/24 18:29:53 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
         return(1);
 
     std::string fileName(argv[1]);
-    fileName += ".repalce";
+    fileName += ".replace";
     std::ofstream   outfile(fileName.c_str());
     if (!check_out_file(outfile))
         return (1);

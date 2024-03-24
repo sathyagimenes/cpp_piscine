@@ -1,9 +1,9 @@
-NAME = main
+NAME = PmergeMe
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS = ./main.cpp \
-		./Harl.cpp
+		./PmergeMe.cpp
 
 OBJS    = $(SRCS:%.cpp=%.o)
 
@@ -16,7 +16,7 @@ $(NAME):	$(OBJS)
 				$(CC) $(CFLAGS) -o $@ -c $<
 
 run:	$(NAME)
-			./$(NAME) "DEBUG"
+			./$(NAME)
 
 clean:
 				rm -f $(OBJS)
@@ -27,6 +27,6 @@ fclean:		clean
 re:			fclean all
 
 valgrind:	all
-			valgrind ./$(NAME) "DEBUG"
+			valgrind ./$(NAME)
 
 .PHONY:		all clean fclean re valgrind

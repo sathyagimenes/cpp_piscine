@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 22:30:16 by sde-cama          #+#    #+#             */
-/*   Updated: 2023/12/11 20:59:07 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/24 15:42:18 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,15 @@ void	replace(std::ifstream &in, std::ofstream &out, std::string s1, std::string 
 		index = 0;
 		while (true)
 		{
-			s1_pos = line.find(s1, index);//acha a posição da s1
+			s1_pos = line.find(s1, index);//acha a posição da s1. index a partir de onde vai começar a procurar
 			if (s1_pos == std::string::npos)//se não acha encerra o loop
 				break;
 			out << line.substr(index, s1_pos - index);//copia ate a incidência da s1
 			out << s2;//copia a s2 no lugar da s1;
 			index = (s1_pos + s1.length());//pula a s1
 		}
-		out << line.substr(index) << std::endl;
+		out << line.substr(index);//escreve o que faltou (apos encontrar a  ocorrencia)
+		if (!in.eof())//signals that the End-of-File has been reached by the last input operation
+			out << std::endl;
 	}
 }
