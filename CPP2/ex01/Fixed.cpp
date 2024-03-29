@@ -66,7 +66,13 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return ((float)getRawBits() / (1 << _fractionalBits)); //The expression (1 << 8) is a bitwise left shift operation, which effectively means 2 raised to the power of 8. So, (1 << 8) is equivalent to 256. This function is converting the fixed-point representation to a floating-point representation. It does this by dividing the raw binary value (getRawBits()) by 256. This division by 256 corresponds to shifting the binary point 8 positions to the right, effectively converting the fixed-point number with 8 fractional bits into a floating-point number. The result is a float value representing the fixed-point number in a floating-point format.
+	return ((float)getRawBits() / (1 << _fractionalBits));
+	//The expression (1 << 8) is a bitwise left shift operation, which effectively means 2 raised to the power of 8. 
+	//So, (1 << 8) is equivalent to 256. This function is converting the fixed-point representation to a 
+	//floating-point representation.
+	//It does this by dividing the raw binary value (getRawBits()) by 256. 
+	//This division by 256 corresponds to shifting the binary point 8 positions to the right, 
+	//effectively converting the fixed-point number with 8 fractional bits into a floating-point number. The result is a float value representing the fixed-point number in a floating-point format.
 	// (1 << _fractionalBits) = 2⁸ => left bitshifting 
 	// getRawBits() / (1 << _fractionalBits) = getRawBits * 2^(-8) => right bitshifting
 }
