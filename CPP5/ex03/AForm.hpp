@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:20:17 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/03 20:51:30 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/03/30 18:18:04 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,16 @@ public:
 
 std::ostream &operator<<(std::ostream &o, AForm const &i);
 
+/*
+This typedef named t_form defines a pointer to a function that takes a constant reference to a std::string named target as an argument and returns a pointer to an object of type AForm.
+*/
 typedef AForm *(*t_form)(std::string const &target);
 
+/*
+This defines a struct named s_form. It contains two members:
+name: This is a std::string member variable.
+form: This is a member variable of type t_form, which is the typedef we declared earlier. So, form is a function pointer that points to a function with the signature specified by t_form.
+*/
 struct s_form
 {
 	std::string name;
