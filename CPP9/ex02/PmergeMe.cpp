@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 02:54:04 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/04/14 06:30:22 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/04/14 14:04:36 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,69 +27,71 @@ int jacobsthal(int n)
 	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
 }
 
-void PmergeMe::merge(char **argv)
+void PmergeMe::merge(int argc, char **argv)
 {
-	_sortByList(argv);
-	_sortByVector(argv);
+	double listDuration = _sortByList(argv);
+	double vectorDuration = _sortByVector(argv);
+
+	std::cout << std::endl
+			  << "Time to process a range of " << argc - 1
+			  << " elements with std::list: " << std::fixed
+			  << std::setprecision(5) << listDuration << " µs" << std::endl;
+
+	std::cout << std::endl
+			  << "Time to process a range of " << argc - 1
+			  << " elements with std::vector: " << std::fixed
+			  << std::setprecision(5) << vectorDuration << " µs" << std::endl;
 }
 
-void PmergeMe::_sortByList(char **argv)
+double PmergeMe::_sortByList(char **argv)
 {
 	std::list<int> unsorted;
 	std::list<int> sorted;
 
-	clock_t start = clock();
-
-	std::cout << GREEN << "[SORTING WITH: std::list]" << RESET << std::endl;
+	std::cout << "[SORTING WITH: std::list]" << std::endl;
 
 	for (int i = 1; argv[i]; i++)
 	{
 		unsorted.push_back(std::atoi(argv[i]));
 	}
 
-	std::cout << BLUE << "Before: " << RESET;
+	std::cout << "Before: ";
 	printNumbers(unsorted);
 
-	std::cout << BLUE << "After: " << RESET;
+	clock_t start = clock();
 	sorted = sortedOrder(unsorted);
+	clock_t end = clock();
+
+	std::cout << "After: ";
 	printNumbers(sorted);
 
-	clock_t end = clock();
 	double duration = double(end - start) / CLOCKS_PER_SEC;
-
-	std::cout << std::endl
-			  << "Time to process a range of " << sorted.size()
-			  << " elements with std::list: " << std::fixed
-			  << std::setprecision(5) << duration << " µs" << RESET << std::endl;
+	return duration;
 }
 
-void PmergeMe::_sortByVector(char **argv)
+double PmergeMe::_sortByVector(char **argv)
 {
 	std::vector<int> unsorted;
 	std::vector<int> sorted;
 
-	clock_t start = clock();
-
 	std::cout << std::endl
-			  << BLUE << "[SORTING WITH: std::vector]" << RESET << std::endl;
+			  << "[SORTING WITH: std::vector]" << std::endl;
 
 	for (int i = 1; argv[i]; i++)
 	{
 		unsorted.push_back(std::atoi(argv[i]));
 	}
 
-	std::cout << GREEN << "Before: " << RESET;
+	std::cout << "Before: ";
 	printNumbers(unsorted);
 
-	std::cout << GREEN << "After: " << RESET;
+	clock_t start = clock();
 	sorted = sortedOrder(unsorted);
+	clock_t end = clock();
+
+	std::cout << "After: ";
 	printNumbers(sorted);
 
-	clock_t end = clock();
 	double duration = double(end - start) / CLOCKS_PER_SEC;
-
-	std::cout << std::endl
-			  << "Time to process a range of " << sorted.size()
-			  << " elements with std::vector : " << std::fixed
-			  << std::setprecision(5) << duration << " µs" << RESET << std::endl;
+	return duration;
 }

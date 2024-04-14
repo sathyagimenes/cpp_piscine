@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:33:52 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/13 19:52:59 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/04/14 14:12:12 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 
 	try
 	{
-		std::cout << "**Searching for '0' in a Vector**" << std::endl;
+		std::cout << "**Searching for 'unexisting value (0)' in a Vector**" << std::endl;
 		resultVector = easyfind(vect, 0);
 	}
 	catch (const std::exception &e)
@@ -47,7 +47,7 @@ int main()
 
 	try
 	{
-		std::cout << "**Searching for '100' in a List**" << std::endl;
+		std::cout << "**Searching for 'unexisting value (100)' in a List**" << std::endl;
 		resultList = easyfind(list, 100);
 	}
 	catch (const std::exception &e)

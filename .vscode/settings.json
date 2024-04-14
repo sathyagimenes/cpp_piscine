@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    ".fantomasignore": "ignore",
     "*.tcc": "cpp",
     "ostream": "cpp",
     "limits": "cpp",
@@ -47,6 +48,7 @@
     "ctime": "cpp",
     "iomanip": "cpp",
     "list": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "cstring": "cpp"
   }
 }

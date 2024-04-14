@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 22:33:52 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/14 21:20:33 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/04/14 14:12:39 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 void	test10000(void);
 
-int main()
+int	main()
 {
 	int array[] = {10, 2, 3, 9, 5, 8, 7, 4, 1, 6};
-	std::list<int>::iterator resultList;
-
-	std::list<int> list(array, array + sizeof(array) / sizeof(array[0]));
 	Span span = Span(11);
 	Span emptySpan = Span(2);
+	std::list<int> list(array, array + sizeof(array) / sizeof(array[0]));
+
 
 	try
 	{
 		std::cout << "\n**Adding range of elements**" << std::endl;
-		span.addNumber(list.begin(), list.end());
+		span.addNumber(list.begin(), list.end(), list.size());
 		std::cout << "> List elements: ";
 		std::cout << span << std::endl;
 
@@ -45,7 +44,7 @@ int main()
 
 	try
 	{
-		std::cout << "\n**Attempt to add new element on full array**" << std::endl;
+		std::cout << "\n**Attempt to add new element on full list**" << std::endl;
 		span.addNumber(43);
 	}
 	catch (const std::exception &e)
@@ -58,7 +57,7 @@ int main()
 		std::cout << "\n**Attempt to get shortest span on empty list**" << std::endl;
 		std::cout << "> List elements: ";
 		std::cout << emptySpan << std::endl;
-		std::cout << "\n> Shortest Span: " << emptySpan.shortestSpan() << std::endl;
+		std::cout << "> Shortest Span: " << emptySpan.shortestSpan() << std::endl;
 	}
 	catch (const std::exception &e)
 	{
@@ -78,7 +77,7 @@ void	test10000(void)
 	
 	try 
 	{
-		sp.addNumber(zeroes.begin(), zeroes.end());
+		sp.addNumber(zeroes.begin(), zeroes.end(), zeroes.size());
 		std::cout << sp << std::endl;
 	}
 	catch (const std::exception &e)

@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 21:31:20 by gilmar            #+#    #+#             */
-/*   Updated: 2024/04/14 06:30:58 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/04/14 13:51:45 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
     try
     {
         PmergeMe pmergeMe;
-        pmergeMe.merge(argv);
+        pmergeMe.merge(argc, argv);
     }
     catch(const std::exception& e)
     {

@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 02:53:52 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/04/14 06:31:51 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/04/14 13:52:09 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,14 @@
 #include <ctime>
 #include <iomanip>
 
-#define RESET "\033[0m"
-#define BLACK "\033[30m" /* Black */
-#define RED "\033[31m"	 /* Red */
-#define GREEN "\033[32m" /* Green */
-#define BLUE "\033[34m"	 /* Blue */
-
 class PmergeMe
 {
 public:
-	void merge(char **argv);
+	void merge(int argc, char **argv);
 
 private:
-	void _sortByList(char **argv);
-	void _sortByVector(char **argv);
+	double _sortByList(char **argv);
+	double _sortByVector(char **argv);
 };
 
 int jacobsthal(int n);

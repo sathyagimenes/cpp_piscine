@@ -11,7 +11,7 @@ all:    $(NAME)
 $(NAME):	$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $@
 
-%.o:		%.c
+%.o:		%.cpp
 				$(CC) $(CFLAGS) -o $@ -c $<
 
 run:	$(NAME)
