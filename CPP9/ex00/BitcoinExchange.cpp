@@ -6,7 +6,7 @@
 /*   By: sde-cama <sde-cama@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:16:13 by sde-cama          #+#    #+#             */
-/*   Updated: 2024/03/17 21:48:07 by sde-cama         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:22:09 by sde-cama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ static bool checkDate(std::string date)
 	if (date.size() != 10)
 		return (false);
 	/* Month check */
-	if (date[5] != '0' && date[5] != '1')
+	if ((date[5] != '0' && date[5] != '1') || (date[5] == '1' && date[6] > 2))
 		return (false);
 	/* Day check */
-	if (date[8] > '3' || date[8] < '0') // Day check
+	if ((date[8] > '3' || date[8] < '0') || (date[8] == '3' && date[9] > '1'))
 		return (false);
 	/* Only digits check */
 	for (size_t i = 0; i < date.size(); i++)
