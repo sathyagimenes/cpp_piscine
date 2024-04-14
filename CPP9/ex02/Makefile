@@ -12,11 +12,11 @@ all:    $(NAME)
 $(NAME):	$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $@
 
-%.o:		%.c
+%.o:		%.cpp
 				$(CC) $(CFLAGS) -o $@ -c $<
 
 run:	$(NAME)
-			./$(NAME)
+			./$(NAME) 10 2 3 1 5 11 9 7
 
 clean:
 				rm -f $(OBJS)
